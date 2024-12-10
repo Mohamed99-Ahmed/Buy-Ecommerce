@@ -45,7 +45,7 @@ export default function Favorites() {
             <button
               onClick={()=>{delProductToWishList(product.id);}}
                 type="button"
-                className="self-center space-x-1 inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
+                className="self-center space-x-1 inline-flex items-center text-sm font-medium text-red-600 hover:underline "
               >
                 <i class=" text-red-600 text-lg fa-sharp-duotone fa-solid fa-xmark"></i>
                 <span>Remove from wishList</span>

@@ -34,7 +34,7 @@ export default function NavBar() {
   return (
     <>
   
-      <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 w-full z-40 border-b border-gray-200 dark:border-gray-600">
+      <nav className="fixed top-0 left-0 right-0 bg-white w-full z-40 border-b border-gray-200">
         <div className="flex gap-3 flex-wrap md:flex-nowrap items-center justify-between p-4">
           <Link className="logo">
             <h1 className="text-green-700 uppercase font-bold text-2xl">Buy</h1>
@@ -97,7 +97,7 @@ export default function NavBar() {
               className={`items-center justify-center w-full md:flex md:w-auto  md:order-1 ${isOpen?"h-0 overflow-hidden ":""} md:h-auto `}
               id="navbar-sticky"
             >
-              <ul  className="flex flex-col md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <ul  className="flex flex-col md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white  ">
                 <li>
                   <NavLink
                     to=""

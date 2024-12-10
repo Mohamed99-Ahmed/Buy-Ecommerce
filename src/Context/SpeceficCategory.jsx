@@ -10,7 +10,7 @@ export default function SpeceficCategory({children}) {
     }
   return (
     <>
-        <spececCatag.Provider value={{getSpesProducts,productsCatag,productsCatag}} >
+        <spececCatag.Provider value={{getSpesProducts,productsCatag}} >
             {children}
         </spececCatag.Provider>
     </>

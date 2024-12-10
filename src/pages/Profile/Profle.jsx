@@ -122,7 +122,7 @@ export default function Profile() {
               onChange={formikData.handleChange}
               onBlur={formikData.handleBlur}
               id="email"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer"
               placeholder=" "
             />
             {closeLockData ? (
@@ -147,7 +147,7 @@ export default function Profile() {
               onChange={formikData.handleChange}
               onBlur={formikData.handleBlur}
               id="name"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer"
               placeholder={userName}
             />
             {closeLockData ? (
@@ -172,7 +172,7 @@ export default function Profile() {
               onChange={formikData.handleChange}
               onBlur={formikData.handleBlur}
               id="phone"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer"
               placeholder=" "
             />
             {closeLockData ? (
@@ -215,7 +215,7 @@ export default function Profile() {
               onChange={formikPass.handleChange}
               onBlur={formikPass.handleBlur}
               id="currentPassword"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer"
             />
             {openLockPass ? (
               <i class="fa-solid fa-lock"></i>
@@ -240,7 +240,7 @@ export default function Profile() {
               onChange={formikPass.handleChange}
               onBlur={formikPass.handleBlur}
               id="password"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer"
             />
             {openLockPass ? (
               <i class="fa-solid fa-lock"></i>
@@ -265,7 +265,7 @@ export default function Profile() {
               onChange={formikPass.handleChange}
               onBlur={formikPass.handleBlur}
               id="rePassword"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer"
             />
             {openLockPass ? (
               <i class="fa-solid fa-lock"></i>
