@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components{
+  body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .btn{
+   @apply text-white px-12  bg-gradient-to-br capitalize from-green-400 to-yellow-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm  py-2.5 text-center me-2 mb-2
+  }
+}
+nav ul li a.active {
+  color:yellowgreen
+}
+
+
+      
