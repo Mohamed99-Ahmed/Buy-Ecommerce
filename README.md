@@ -6,7 +6,7 @@
 ## Description
 Using (Tanstack query to state Mangment data from api)
 1.  ( Context Provider )
- 2. (swiper Library )+ yup for validation + jwt Decode to take username of user +  + )
+ 2. (swiper Library )
   3.( yup for validation )
   4.(  jwt Decode to take username of use )
   5.( axios for fetch data from api )
