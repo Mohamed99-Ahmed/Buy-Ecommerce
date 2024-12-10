@@ -4,6 +4,9 @@ import Loading from "../../components/Loading/Loading";
 import { cartContext } from "../../Context/cart.context";
 import ReactImageGallery from "react-image-gallery";
 import Product from "../../components/Product/Product";
+
+
+
 import { useParams } from "react-router-dom";
 export default function ProductDetails() {
   const { productItem, getRelatedProducts, relatedProduct } =   useContext(ProductSp);
@@ -68,7 +71,9 @@ export default function ProductDetails() {
               </article>
             </section>
             <section className="relatedProduct ">
-              <swiper-container  slides-per-view="4" loop="true"    space-between={10}   > 
+              <swiper-container    loop="true"    space-between="10" 
+                data-breakpoints='{"640": {"slidesPerView": 1}, "768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}, "1280": {"slidesPerView": 4}}'
+              > 
                 {relatedProduct.map((product)=>{
                   return (<swiper-slide className="flex flex-col items-center justify-between bg-gray-100 rounded-lg shadow-md h-full p-4"><Product   key={product._id} product={product}/></swiper-slide>)
                 })}

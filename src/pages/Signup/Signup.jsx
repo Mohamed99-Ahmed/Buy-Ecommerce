@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { tokenContext } from "../../Context/token.context";
 
 export default function SignUp() {
-  const{setUserData} = useContext(tokenContext)
+  // const{setUserData} = useContext(tokenContext)
   let navigate = useNavigate()
 let validationSchema = Yup.object({
   name: Yup.string().required("Your Name is required").min(5, "At least 5 letters").max(20, "maxiumum 20 letters in your name"),
@@ -27,7 +27,7 @@ let validationSchema = Yup.object({
     validationSchema ,
     onSubmit:async function(values){
       console.log(values);
-      setUserData(values);
+      // setUserData(values);
       let loadToast;
        try{
          loadToast = toast.loading("Send Your Data")

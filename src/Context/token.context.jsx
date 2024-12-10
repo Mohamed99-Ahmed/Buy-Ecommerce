@@ -4,7 +4,7 @@ import React, { createContext, useEffect, useState } from 'react'
 export const tokenContext = createContext(0);
 export default function TokenProvider({children}) {
     const [token, setToken] = useState(localStorage.getItem("token"));
-    // const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState(null);
 
     const [userName, setUserName] = useState("");
     useEffect(() => {

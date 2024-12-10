@@ -8,7 +8,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css"
 // import imageGallery package
 import "react-image-gallery/styles/css/image-gallery.css";
 import './index.css'
-import App from './App.jsx'
+import App from './App.jsx';
+// import swiper library
+// core version + navigation, pagination modules:
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
