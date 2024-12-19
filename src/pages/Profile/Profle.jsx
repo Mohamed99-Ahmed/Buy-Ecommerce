@@ -7,14 +7,16 @@ import * as Yup from "yup"
 import toast from "react-hot-toast";
 import axios from "axios";
 export default function Profile() {
+  // some data come from tokenContext context 
   let { token,userName,setUserName } = useContext(tokenContext);
- 
+  // vlaidateData that passing to validateSchema in formik to submit if true
   let vlaidateData = Yup.object({
     email: Yup.string().required("Your Email is required").email("Not Valid email"),
     name: Yup.string().required("Your Name is required").min(5, "At least 5 letters").max(20, "maxiumum 20 letters in your name"),
     phone: Yup.string().required("phone is required").matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/gm,"Your phone is not valid")
 
   });
+   // validatePassword that passing to validateSchema in formik to submit if true the you can change passoword of you profile
   let validatePassword = Yup.object({
     currentPassword: Yup.string().required("password  is required").matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/gm,"At least One (UpperCase , LowerCase , degit, character space) and at least 8 letters"),
     password :  Yup.string().required("password  is required").matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/gm,"At least One (UpperCase , LowerCase , degit, character space) and at least 8 letters"),
@@ -22,6 +24,7 @@ export default function Profile() {
   })
   let [closeLockData, setCloseLockData] = useState(true);
   let [openLockPass, setOpenLockPass] = useState(true);
+  // formik of update  user password
   let formikPass = useFormik({
     initialValues: {
       currentPassword:"",
@@ -58,7 +61,7 @@ export default function Profile() {
       
     }
   });
-  
+  // formik of update data of user
   let formikData = useFormik({
     initialValues: {
       name: `${ userName }`,

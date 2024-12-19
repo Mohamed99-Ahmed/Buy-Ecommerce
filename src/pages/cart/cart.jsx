@@ -13,7 +13,7 @@ export default function Cart() {
    getUserCarts()
   },[])
 
-
+  // if carts true display it and if false display loading untill data response
   return (
     <>
 {carts?<section className="bg-white py-8 antialiased  md:py-16">

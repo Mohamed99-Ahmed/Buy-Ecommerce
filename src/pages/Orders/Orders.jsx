@@ -7,19 +7,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { ProductSp } from "../../Context/ProductSp";
 
 export default function Orders() {
+  // take token from token useContext
   let { token } = useContext(tokenContext);
+  // distruct userid from token by use jwtDecode library
   let { id } = jwtDecode(token);
   let [orders, setOrders] = useState(null);
   const { getSpProduct } = useContext(ProductSp);
   const navigate = useNavigate();
-
+// this function take orders from backend then put in orders state then you can display in this component
   async function getAllOrders() {
     let { data } = await axios.get(
       `https://ecommerce.routemisr.com/api/v1/orders/user/${id}`
     );
     setOrders(data);
-    console.log(orders);
   }
+  // call getAllOrders func in mounting phase 
   useEffect(() => {
     getAllOrders();
     
@@ -27,9 +29,11 @@ export default function Orders() {
   return (
     <>
       <section className="container orders space-y-4">
+        {/* if no order here display this div */}
       {  orders !== null && orders.length == 0 ?<div className='border border-green-400 p-8 '>
             No order here please go to  <Link className='text-green-400 underline uppercase text-lg ' to="/cart">Cart</Link>
           </div>:""}
+          {/* if have more than 0 order display this div */}
         {orders ? (
           orders.map((order) => {
             return (

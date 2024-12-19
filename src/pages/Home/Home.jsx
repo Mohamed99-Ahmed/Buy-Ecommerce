@@ -10,23 +10,22 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   let [filterProducts, setFilterProducts] =  useState(null);
- 
-
   async function allProducts() {
     return await axios.get("https://ecommerce.routemisr.com/api/v1/products ");
   }
-
-  const { data, isLoading, isFetched } = useQuery({
+// useQery for state managment of data the come from api and destruct some variable that return from it (data, isLoading, ......)
+  const { data, isLoading } = useQuery({
     queryKey: ["Allproducts"],
     queryFn: allProducts,
     staleTime: 20000,
     gcTime: 20000,
     select: (data) => data.data.data,
   });
+  // if data not come yet display laoding 
   if (isLoading) {
     return <Loading />;
   }
-
+// display this components when data come
   return (
     <div className="container">
       <SliderHome />

@@ -5,10 +5,12 @@ import { spececCatag } from "../../Context/SpeceficCategory";
 
 
 export default function SliderCategories() {
+  // get some data from context
   const {getSpesProducts}= useContext(spececCatag)
   const [products, setProducts] = useState([]);
   const useNav = useNavigate()
   useEffect(() => {
+    // getCategories func when call in intial render of this component
     getCategories();
     
   }, []);
@@ -18,7 +20,6 @@ export default function SliderCategories() {
     );
     let products = data.data;
     setProducts(products);
-    console.log(products);
   }
   async function goCatagPage(id){
     await getSpesProducts(id);

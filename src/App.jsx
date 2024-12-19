@@ -22,12 +22,14 @@ import Orders from "./pages/Orders/Orders.jsx";
 import Profile from "./pages/Profile/Profle.jsx";
 
 export default function App() {
+  // take a object client from queryClient that import from tanstak for (stae mangment)
   let client = new QueryClient();
   const routes = createBrowserRouter(
     [
       {
         path: "",
         element: (
+          // protect the layout and if user have token appear it children  (written in protectRoutes component)
           <ProtectRoutes>
             <LayOut />
           </ProtectRoutes>
@@ -45,6 +47,7 @@ export default function App() {
         ],
       },
       {
+        // if the user don't have token appear this layout 
         path: "/auth",
         element: <LayOut />,
         children: [

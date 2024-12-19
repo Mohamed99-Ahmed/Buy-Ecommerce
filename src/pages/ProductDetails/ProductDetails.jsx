@@ -9,18 +9,20 @@ import Product from "../../components/Product/Product";
 
 import { useParams } from "react-router-dom";
 export default function ProductDetails() {
+  // take some thing from produstSp context 
   const { productItem, getRelatedProducts, relatedProduct } =   useContext(ProductSp);
   const { addTocCart } = useContext(cartContext);
+// distruct param that in path from use useParams hook
   const { param } = useParams();
-
+  // call this function when change in productItem or param (id or product) will rerender  component
   useEffect(() => {
     if (productItem == null) return;
     getRelatedProducts(productItem.category._id);
-    // call this function when change in productItem or param => rerender form component
   }, [productItem,param]);
  
   return (
     <>
+    {/* if productitem come and relatedProdct display this component , else display loading component */}
       {productItem && relatedProduct ? (
         <>
           <div className="container">

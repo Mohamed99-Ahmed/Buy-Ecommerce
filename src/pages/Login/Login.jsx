@@ -8,8 +8,10 @@ import { tokenContext } from "../../Context/token.context";
 
 
 export default function Login() {
+  // get token from tokenContext to use it in this component
  const {token, setToken}  = useContext(tokenContext)
-  let navigate = useNavigate()
+  let navigate = useNavigate();
+  // vlaidate schema to use it in formik validation and if it true you can submit function now
 let validationSchema = Yup.object({
   email: Yup.string().required("Your Email is required").email("Not Valid email"),
   password: Yup.string().required("password  is required").matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/gm,"At least One (UpperCase , LowerCase , degit, character space) and at least 8 letters"),
@@ -19,23 +21,26 @@ let validationSchema = Yup.object({
       email: "",
       password: "",
     },
-    validationSchema ,
+    validationSchema ,  // this is come from yub validation
+    // after validate you can send values to your api
     onSubmit:async function(values){
       let loadToast;
        try{
          loadToast = toast.loading("Send Your Data")
         let {data} = await axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin", values);
         toast.dismiss(loadToast);
-        toast.success("Seccess User")
+        toast.success("Seccess User");
+        // make token state equal to token that come from backend and in localstorage 
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        console.log(values)
+        // after 3s of login success go to homepage  
         setTimeout(()=>{
           navigate("/")
         },3000)
        }catch(error){
          toast.dismiss(loadToast)
-         toast.error("this is error ")
+         toast.error("this is error ");
+        //  if any error in response put this in errors.email to display to user 
         formik.errors.email = `${error.response.data.message}`
        };
        

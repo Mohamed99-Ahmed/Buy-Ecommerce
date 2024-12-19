@@ -9,14 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function CheckOut() {
-    let navigate = useNavigate()
+  // navigat hooke that you can make auto navigate 
+    let navigate = useNavigate();
+    // get some state from context
     let {cartId,setCarts} = useContext(cartContext);
     let {token} = useContext(tokenContext);
     let [payment, setPayment] = useState("")
 
-    useEffect(()=>{
-        console.log(cartId)
-    },[cartId])
 //  online payment with 
 async function  onlinePayment(values){
     try{
@@ -31,6 +30,7 @@ async function  onlinePayment(values){
        let {data} = await axios(options);
        console.log(data)
        if(data.status == "success"){
+        // if data status is success change the location to url that come from backend that tell me when finsih online payment please return to this url
             location.href = data.session.url;
        }
     }catch(error){
@@ -52,13 +52,12 @@ async function  onlinePayment(values){
        }
         let {data} = await axios(options);
         if(data.status == "success"){
+          // if success request please navigate to home page after 2s
             setTimeout(()=>{
                 navigate("/")
             },2000)
         }
-        console.log(data);
         toast.success("Seccess your order arrived to us")
-         console.log(data)
      }catch(error){
             toast.error(`faild to send your cart` )
          
@@ -66,12 +65,15 @@ async function  onlinePayment(values){
         toast.dismiss(toastLoad)
      }
     }
+    // formik library  to make form change from uncontroled to controled 
   let formik =   useFormik({
         initialValues:{
             shippingAddress:{details:"",phone:"",city:""}
         },
         onSubmit: function(values){
-           payment == "online"? onlinePayment(values) : cashPayment(values)
+          // if payment online please excute onlinepayment func and else please excute cashpyment func
+           payment == "online"? onlinePayment(values) : cashPayment(values);
+          //  after payment set Carts to 0 that make change in state that written in cartContext
             setCarts(0);
             
         }

@@ -8,21 +8,15 @@ import { jwtDecode } from "jwt-decode";
 
 
 export default function NavBar() {
+  // destuct some thing from  context to use in navbar component
   const { LogOut, token,userName } = useContext(tokenContext);
- 
-  // check the width of window to appear or disapperr the links
   const { carts, getUserCarts } = useContext(cartContext);
-  const {numProductWish,getAllProductWishList} = useContext(wishList)
-  const [isOpen, setIsOpen] = useState(true);
+  const {numProductWish,getAllProductWishList} = useContext(wishList);
+// Make isOpen state to know when open or closed in small devices
+  const [isOpen, setIsOpen] = useState(false);
   const [userBox , setUserBox] = useState(false);
-  // in updatin phase of component
-  function navBar() {
-    setIsOpen((prev) => !prev);
-  }
-  useEffect(()=>{
-   // when change the numProductWish   
-  },[numProductWish])
   useEffect(() => {
+    // these function will call in mouting phase that change in number of (cart and wishlist ) then i can use in navbar componet
     getUserCarts();
     getAllProductWishList()
   }, []);
@@ -41,6 +35,7 @@ export default function NavBar() {
           </Link>
           <div className="right-nav m-0 inline-flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <div className="links flex items-center flex-row gap-4 text-xl">
+              {/* display these link if ther token (when login) */}
               {!token ? (
                 <div>
                   <Link to="/auth/login">
@@ -57,6 +52,7 @@ export default function NavBar() {
               ) : (
                 ""
               )}
+              {/* display these link if ther token (when login) */}
               {token ? (<>
                 <div className="relative">
                 <Link to="/favorites" className="cursor-pointer">
@@ -76,6 +72,7 @@ export default function NavBar() {
               ) : (
                 ""
               )}
+              {/* display these  if ther token (when login) */}
               {token ? (
                 <span onClick={LogOut} className="cursor-pointer">
                   <i className="fa-solid fa-arrow-right-from-bracket"></i>
@@ -84,11 +81,8 @@ export default function NavBar() {
                 ""
               )}
             </div>
-            <div
-              className="button flex items-center justify-center cursor-pointer"
-             
-            >
-              
+            <div className="button flex items-center justify-center cursor-pointer" >
+              {/* when click in it make a toggleNav func that change in isopen to (appear or disappear list) */}
               <i className="fa-solid font-bold text-2xl fa-bars md:hidden"  onClick={toggleNav}></i>
             </div>
           </div>

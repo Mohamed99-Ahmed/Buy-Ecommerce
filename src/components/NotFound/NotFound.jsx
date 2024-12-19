@@ -1,6 +1,6 @@
 import React from 'react'
 import notFound from '../../assets/images/notfound.svg'
-
+// not found page appear when user write any path that not found in my paths
 export default function NotFound() {
   return (
     <>

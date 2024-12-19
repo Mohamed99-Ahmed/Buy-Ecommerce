@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { tokenContext } from "../../Context/token.context";
 
 export default function SignUp() {
-  // const{setUserData} = useContext(tokenContext)
+  // useNavigate hook that make auto navigate
   let navigate = useNavigate()
+  // validationSchema for signup if true you can make subit , else errors will appear in your form
 let validationSchema = Yup.object({
   name: Yup.string().required("Your Name is required").min(5, "At least 5 letters").max(20, "maxiumum 20 letters in your name"),
   email: Yup.string().required("Your Email is required").email("Not Valid email"),
@@ -16,6 +17,7 @@ let validationSchema = Yup.object({
   rePassword: Yup.string().required("Re-password  is required").oneOf([Yup.ref("password")],"Repassword must be like password"),
   phone: Yup.string().required("phone is required").matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/gm,"Your phone is not valid")
 })
+// formik library to signup with validation
   let formik = useFormik({
     initialValues: {
       name: "",
@@ -26,21 +28,20 @@ let validationSchema = Yup.object({
     },
     validationSchema ,
     onSubmit:async function(values){
-      console.log(values);
-      // setUserData(values);
+     
       let loadToast;
        try{
          loadToast = toast.loading("Send Your Data")
         let res = await axios.post("https://ecommerce.routemisr.com/api/v1/auth/signup", values);
         toast.dismiss(loadToast);
-        toast.success("Seccess data")
+        toast.success("Seccess data");
+        // after send data auto navigate to login page to login
         setTimeout(()=>{
           navigate("/auth/login")
         },3000)
-        console.log(res)
        }catch(error){
          toast.dismiss(loadToast)
-        console.log(error.response.data.message)
+        console.log(error.response.data.message);
         formik.errors.email = `${error.response.data.message}`
          toast.error("this is error ")
        };

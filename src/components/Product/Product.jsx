@@ -8,9 +8,6 @@ export default function Product({ product }) {
   const {getSpProduct} = useContext(ProductSp)
   const {addTocCart} = useContext(cartContext);
   const {addProductToWishList} = useContext(wishList)
-  // useEffect(()=>{
-  //   addProductToWishList('6428ebc6dc1175abc65ca0b9')
-  // },[])
 
   return (
     <>

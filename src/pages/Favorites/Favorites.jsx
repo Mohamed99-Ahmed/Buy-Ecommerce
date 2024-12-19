@@ -7,24 +7,25 @@ import { Link } from "react-router-dom";
 
 
 export default function Favorites() {
-  const [products, setProducts] = useState(null)
+  const [products, setProducts] = useState(null);
+  // take some state from context
   let {getAllProductWishList,delProductToWishList} = useContext(wishList)
   let {addTocCart} = useContext(cartContext);
-
+// getAllProductWishList this function is excute in intial render of this component and when delete product from wishlist
   useEffect(() => {
     getAllProductWishList().then((res) => {
-    
       setProducts(res.data)
     });
   }, [delProductToWishList]);
   return (
     <>
       <div className="container">
+        {/* this diev will appear if product 0 */}
       {products == 0?<div className='border border-green-400 p-8 '>
             No wish product here please go to  <Link className='text-green-400 underline uppercase text-lg ' to="/">Home</Link>
           </div>:""}
         <section className=" grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-between items-stretch ">
-      
+      {/* show products if it true else display loading untill come */}
        { products? products.map((product)=>{
           return (
             <div key={product.id} className="item  bg-gray-100 p-4 rounded-md flex justify-between gap-4 flex-col">
